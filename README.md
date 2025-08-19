@@ -1,10 +1,10 @@
 # DANDI Backup Status
 
-Current status of S3 bucket backup of the DANDI Archive' as of 2025/08/18.
+Current status of S3 bucket backup of the DANDI Archive' as of 2025/08/19.
 
 | Location             | Size (Local / Remote)                    | Number of Objects (Local / Remote)[^1]   |
 | :--------------------: | :----------------------------------------: | :----------------------------------------: |
-| blobs/               | 743.31 TB / 837.68 TB (88.73%)           | 305654 / 484211 (63.12%)                 |
+| blobs/               | 760.77 TB / 837.68 TB (90.82%)           | 315399 / 484212 (65.14%)                 |
 | dandisets/           | 2.34 GB / 2.34 GB (100.00%)              | 6925 / 6925 (100.00%)                    |
 | README.md            | 2.14 KB / 2.14 KB (100.00%)              | 1 / 1 (100.00%)                          |
 | index.html           | 3.09 KB / 3.09 KB (100.00%)              | 1 / 1 (100.00%)                          |
