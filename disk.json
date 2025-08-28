@@ -1,1 +1,1 @@
-{"subtitle": "Partition Disk Space", "data": {"Partition": ["001", "002"], "Used / Total (%)": ["791.24 TB / 967.57 TB (81.78%)", "21.28 TB / 681.70 TB (3.12%)"]}}
+{"subtitle": "Disk Space", "data": {"Partition": ["001", "002"], "Size (Used / Total)": ["673.17 TB / 967.57 TB (69.57%)", "62.80 TB / 681.70 TB (9.21%)"]}}
