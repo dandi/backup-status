@@ -1,0 +1,60 @@
+name: Check available disk space
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  CheckDiskSpace:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Load JSON data
+        id: load-json
+        run: |
+          JSON_URL="https://raw.githubusercontent.com/dandi/backup-status/main/data/disk.json"
+          JSON_CONTENT=$(curl -s $JSON_URL)
+    
+      - name: Check partition 001
+        id: check-001
+        run: |
+          VALUE=$(echo "$JSON_CONTENT" | jq -r '.data["Size (Used / Total)"][0]' | sed -n 's/.*(\([0-9.]*\)%)$/\1/p')
+          echo "Value: $VALUE"
+          if (( $(echo "$VALUE > 90" | bc -l) )); then
+            echo "Disk usage on partition 001 exceeds 90%"
+            exit 1
+          fi
+
+      - name: Check partition 002
+        id: check-002
+        run: |
+          VALUE=$(echo "$JSON_CONTENT" | jq -r '.data["Size (Used / Total)"][1]' | sed -n 's/.*(\([0-9.]*\)%)$/\1/p')
+          echo "Value: $VALUE"
+          if (( $(echo "$VALUE > 90" | bc -l) )); then
+            echo "Disk usage on partition 002 exceeds 90%"
+            exit 1
+          fi
+
+      - name: Success message
+        if: success()
+        run: echo "Disk space on Engaging partitions is within acceptable range."
+
+
+  NotifyOnRemoteFailure:
+    runs-on: ubuntu-latest
+    needs: [ CheckDiskSpace ]
+    if: ${{ always() && needs.CheckDiskSpace.result == 'failure' }}
+    steps:
+      - uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: Engaging partition disk space is above 90%
+          to: cody.c.baker.phd@gmail.com  # Add more with comma separation (no spaces)
+          from: backup-status
+          body: "Please check the available disk space and backup protocols for DANDI on Engaging."
+        
