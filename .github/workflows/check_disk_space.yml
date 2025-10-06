@@ -1,9 +1,8 @@
 name: Check available disk space
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "0 17 * * *"  # noon EST
   workflow_dispatch:
 
 jobs:
@@ -21,6 +20,7 @@ jobs:
         id: check-001
         run: |
           VALUE=$(echo "$JSON_CONTENT" | jq -r '.data["Size (Used / Total)"][0]' | sed -n 's/.*(\([0-9.]*\)%)$/\1/p')
+          
           echo "Value: $VALUE"
           if (( $(echo "$VALUE > 90" | bc -l) )); then
             echo "Disk usage on partition 001 exceeds 90%"
@@ -31,6 +31,7 @@ jobs:
         id: check-002
         run: |
           VALUE=$(echo "$JSON_CONTENT" | jq -r '.data["Size (Used / Total)"][1]' | sed -n 's/.*(\([0-9.]*\)%)$/\1/p')
+          
           echo "Value: $VALUE"
           if (( $(echo "$VALUE > 90" | bc -l) )); then
             echo "Disk usage on partition 002 exceeds 90%"
