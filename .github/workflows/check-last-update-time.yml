@@ -13,7 +13,7 @@ jobs:
       - name: Check last commit timestamp remotely
         id: check-commit-timestamp
         run: |
-          REPO_URL="https://api.github.com/repos/dandi/backup-status.git"
+          REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dandi/backup-status.git"
           
           LAST_COMMIT_SHA=$(git ls-remote $REPO_URL HEAD | awk '{print $1}')
           LAST_COMMIT_DATE=$(curl -s "$REPO_URL/commits/$LAST_COMMIT_SHA" | jq -r '.commit.committer.date')
