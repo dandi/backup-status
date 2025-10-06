@@ -15,30 +15,11 @@ jobs:
         run: |
           REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dandi/backup-status.git"
 
-          # Get the last commit SHA
           LAST_COMMIT_SHA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/dandi/backup-status/branches/main" | jq -r '.commit.sha')
-          
-          if [ -z "$LAST_COMMIT_SHA" ]; then
-            echo "Error: Unable to fetch the last commit SHA."
-            exit 1
-          fi
-          
-          # Get the last commit date
           LAST_COMMIT_DATE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/dandi/backup-status/commits/$LAST_COMMIT_SHA" | jq -r '.commit.committer.date')
-          
-          if [ -z "$LAST_COMMIT_DATE" ]; then
-            echo "Error: Unable to fetch the last commit date."
-            exit 1
-          fi
-          
-          # Convert the date to a timestamp
           LAST_COMMIT_TIMESTAMP=$(date -d "$LAST_COMMIT_DATE" +%s)
-          if [ -z "$LAST_COMMIT_TIMESTAMP" ]; then
-            echo "Error: Unable to convert the last commit date to a timestamp."
-            exit 1
-          fi
           
           CURRENT_TIMESTAMP=$(date +%s)
           THREE_DAYS_AGO=$(($CURRENT_TIMESTAMP - 3))
