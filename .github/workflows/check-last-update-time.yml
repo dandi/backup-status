@@ -14,10 +14,11 @@ jobs:
         id: check-commit-timestamp
         run: |
           REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dandi/backup-status.git"
-          
-          LAST_COMMIT_SHA=$(git ls-remote $REPO_URL HEAD | awk '{print $1}')
+
+          LAST_COMMIT_SHA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/dandi/backup-status/branches/main" | jq -r '.commit.sha')
           LAST_COMMIT_DATE=$(curl -s "$REPO_URL/commits/$LAST_COMMIT_SHA" | jq -r '.commit.committer.date')
           LAST_COMMIT_TIMESTAMP=$(date -d "$LAST_COMMIT_DATE" +%s)
+          
           CURRENT_TIMESTAMP=$(date +%s)
           THREE_DAYS_AGO=$(($CURRENT_TIMESTAMP - 3*24*60*60))
       
