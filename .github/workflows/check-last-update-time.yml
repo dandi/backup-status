@@ -39,7 +39,7 @@ jobs:
         run: echo "Disk space on Engaging partitions is within acceptable range."
 
 
-  NotifyOnRemoteFailure:
+  NotifyOnFailure:
     runs-on: ubuntu-latest
     needs: [ CheckLastUpdateTime ]
     if: ${{ always() && needs.CheckLastUpdateTime.result == 'failure' }}
