@@ -1,0 +1,51 @@
+name: Check last update time
+
+on:
+  schedule:
+    - cron: "0 17 * * *"  # noon EST
+  workflow_dispatch:
+
+jobs:
+  CheckLastUpdateTime:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check last commit timestamp
+        id: check-commit-timestamp
+        run: |
+          LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=iso)
+          LAST_COMMIT_TIMESTAMP=$(date -d "$LAST_COMMIT_DATE" +%s)
+          CURRENT_TIMESTAMP=$(date +%s)
+          THREE_DAYS_AGO=$(($CURRENT_TIMESTAMP - 3*24*60*60))
+
+          echo "Last commit timestamp: $LAST_COMMIT_TIMESTAMP"
+          echo "Three days ago timestamp: $THREE_DAYS_AGO"
+
+          if [ $LAST_COMMIT_TIMESTAMP -ge $THREE_DAYS_AGO ]; then
+            echo "The last commit was within the last 3 days."
+          else
+            echo "The last commit was more than 3 days ago."
+            exit 1
+          fi
+
+      - name: Success message
+        if: success()
+        run: echo "Disk space on Engaging partitions is within acceptable range."
+
+
+  NotifyOnRemoteFailure:
+    runs-on: ubuntu-latest
+    needs: [ CheckLastUpdateTime ]
+    if: ${{ always() && needs.CheckLastUpdateTime.result == 'failure' }}
+    steps:
+      - uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: DANDI backup has not been updated
+          to: cody.c.baker.phd@gmail.com  # Add more with comma separation (no spaces)
+          from: backup-status
+          body: "DANDI backup status has not been updated within the last 3 days: https://github.com/dandi/backup-status"
+        
