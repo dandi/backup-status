@@ -10,17 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check last commit timestamp
+      - name: Check last commit timestamp remotely
         id: check-commit-timestamp
         run: |
-          LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=iso)
+          REPO_URL="https://api.github.com/repos/dandi/backup-status"
+          
+          LAST_COMMIT_SHA=$(git ls-remote $REPO_URL HEAD | awk '{print $1}')
+          LAST_COMMIT_DATE=$(curl -s "$REPO_URL/commits/$LAST_COMMIT_SHA" | jq -r '.commit.committer.date')
           LAST_COMMIT_TIMESTAMP=$(date -d "$LAST_COMMIT_DATE" +%s)
           CURRENT_TIMESTAMP=$(date +%s)
           THREE_DAYS_AGO=$(($CURRENT_TIMESTAMP - 3*24*60*60))
-
+      
           echo "Last commit timestamp: $LAST_COMMIT_TIMESTAMP"
           echo "Three days ago timestamp: $THREE_DAYS_AGO"
-
+      
           if [ $LAST_COMMIT_TIMESTAMP -ge $THREE_DAYS_AGO ]; then
             echo "The last commit was within the last 3 days."
           else
