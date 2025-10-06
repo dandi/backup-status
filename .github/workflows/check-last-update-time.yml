@@ -15,9 +15,25 @@ jobs:
         run: |
           REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dandi/backup-status.git"
 
-          LAST_COMMIT_SHA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/dandi/backup-status/branches/main" | jq -r '.commit.sha')
-          LAST_COMMIT_DATE=$(curl -s "$REPO_URL/commits/$LAST_COMMIT_SHA" | jq -r '.commit.committer.date')
-          LAST_COMMIT_TIMESTAMP=$(date -d "$LAST_COMMIT_DATE" +%s)
+          # Get the last commit SHA of the main branch
+          LAST_COMMIT_SHA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/dandi/backup-status/branches/main" | jq -r '.commit.sha')
+          
+          # Debug: Check if LAST_COMMIT_SHA is empty
+          if [ -z "$LAST_COMMIT_SHA" ]; then
+            echo "Error: Unable to fetch the last commit SHA."
+            exit 1
+          fi
+          
+          # Get the last commit date
+          LAST_COMMIT_DATE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/dandi/backup-status/commits/$LAST_COMMIT_SHA" | jq -r '.commit.committer.date')
+          
+          # Debug: Check if LAST_COMMIT_DATE is empty
+          if [ -z "$LAST_COMMIT_DATE" ]; then
+            echo "Error: Unable to fetch the last commit date."
+            exit 1
+          fi
           
           CURRENT_TIMESTAMP=$(date +%s)
           THREE_DAYS_AGO=$(($CURRENT_TIMESTAMP - 3*24*60*60))
