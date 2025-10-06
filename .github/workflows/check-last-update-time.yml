@@ -41,7 +41,7 @@ jobs:
           fi
           
           CURRENT_TIMESTAMP=$(date +%s)
-          THREE_DAYS_AGO=$(($CURRENT_TIMESTAMP - 3*24*60*60))
+          THREE_DAYS_AGO=$(($CURRENT_TIMESTAMP - 3))
       
           echo "Last commit timestamp: $LAST_COMMIT_TIMESTAMP"
           echo "Three days ago timestamp: $THREE_DAYS_AGO"
