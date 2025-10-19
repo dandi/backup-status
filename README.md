@@ -2,14 +2,14 @@
 
 Current status of S3 bucket backup of the DANDI Archive.
 
-Last update: 2025-10-18T08:59:23.244530-04:00
+Last update: 2025-10-19T08:48:28.762818-04:00
 
 ## Disk Space
 
 | Partition | Size (Used / Total)            |
 | :---: | :----------------------------: |
-| 001   | 872.98 TB / 967.57 TB (90.22%) |
-| 002   | 542.08 TB / 681.70 TB (79.52%) |
+| 001   | 879.21 TB / 967.57 TB (90.87%) |
+| 002   | 545.97 TB / 681.70 TB (80.09%) |
 
 
 
