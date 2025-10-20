@@ -15,6 +15,8 @@ jobs:
         run: |
           JSON_URL="https://raw.githubusercontent.com/dandi/backup-status/main/data/disk.json"
           JSON_CONTENT=$(curl -s $JSON_URL)
+
+          echo $JSON_CONTENT
     
       - name: Check partition 001
         id: check-001
