@@ -16,7 +16,7 @@ jobs:
           JSON_CONTENT=$(curl -s $JSON_URL)
 
           echo $JSON_CONTENT
-          echo $JSON_CONTENT >> $$GITHUB_ENV
+          echo "JSON_CONTENT=$JSON_CONTENT" >> $$GITHUB_ENV
     
       - name: Check partition 001
         run: |
