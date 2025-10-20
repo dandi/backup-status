@@ -11,15 +11,14 @@ jobs:
 
     steps:
       - name: Load JSON data
-        id: load-json
         run: |
           JSON_URL="https://raw.githubusercontent.com/dandi/backup-status/main/data/disk.json"
           JSON_CONTENT=$(curl -s $JSON_URL)
 
           echo $JSON_CONTENT
+          echo $JSON_CONTENT >> $$GITHUB_ENV
     
       - name: Check partition 001
-        id: check-001
         run: |
           VALUE=$(echo "$JSON_CONTENT" | jq -r '.data["Size (Used / Total)"][0]' | sed -n 's/.*(\([0-9.]*\)%)$/\1/p')
           
