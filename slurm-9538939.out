@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/var/spool/slurmd/job9538939/slurm_script", line 8, in <module>
+    sys.exit(_s3backup())
+             ~~~~~~~~~^^
+  File "/orcd/data/dandi/001/s3-backup-environment/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/s3-backup-environment/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+  File "/orcd/data/dandi/001/s3-backup-environment/lib/python3.13/site-packages/click/core.py", line 1830, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/s3-backup-environment/lib/python3.13/site-packages/click/core.py", line 1830, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/orcd/data/dandi/001/s3-backup-environment/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/orcd/data/dandi/001/s3-backup-environment/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+  File "/orcd/data/dandi/001/simple-s3-backup/src/simple_s3_backup/_command_line_interface/_cli.py", line 71, in _s3backup_dandi_dashboard
+    update_display()
+    ~~~~~~~~~~~~~~^^
+  File "/orcd/data/dandi/001/simple-s3-backup/src/simple_s3_backup/_base/_display.py", line 17, in update_display
+    data = _load_data(use_cache=use_cache)
+  File "/orcd/data/dandi/001/simple-s3-backup/src/simple_s3_backup/_base/_display.py", line 211, in _load_data
+    partition_002_used = int(df_values_002_split[2])
+ValueError: invalid literal for int() with base 10: ''
