@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  threshold: 97
+  threshold: 97.5
 
 jobs:
   CheckDiskSpace:
