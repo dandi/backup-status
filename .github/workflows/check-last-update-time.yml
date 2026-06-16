@@ -52,6 +52,6 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: DANDI backup has not been updated
           to: cody.c.baker.phd@gmail.com  # Add more with comma separation (no spaces)
-          from: backup-status
+          from: Backup Status <backup-status@users.noreply.github.com>
           body: "DANDI backup status has not been updated within the last 3 days: https://github.com/dandi/backup-status"
         
