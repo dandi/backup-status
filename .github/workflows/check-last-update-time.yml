@@ -5,6 +5,9 @@ on:
     - cron: "0 17 * * *"  # noon EST
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   CheckLastUpdateTime:
     runs-on: ubuntu-latest
