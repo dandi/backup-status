@@ -5,6 +5,8 @@ on:
     - cron: "0 17 * * *"  # noon EST
   workflow_dispatch:
 
+permissions: {}
+
 env:
   threshold: 80
 
