@@ -60,5 +60,5 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: Engaging partition disk space is above $threshold%
           to: cody.c.baker.phd@gmail.com  # Add more with comma separation (no spaces)
-          from: backup-status
+          from: Backup Status <backup-status@users.noreply.github.com>
           body: "Please check the available disk space and backup protocols for DANDI on Engaging."
