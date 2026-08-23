@@ -2,7 +2,7 @@
 
 Current status of S3 bucket backup of the DANDI Archive.
 
-Last update: August 22, 2026 at 06:13 AM ET
+Last update: August 23, 2026 at 06:08 AM ET
 
 ## Disk Space
 
