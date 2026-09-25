@@ -2,13 +2,13 @@
 
 Current status of S3 bucket backup of the DANDI Archive.
 
-Last update: September 24, 2026 at 12:38 PM ET
+Last update: September 25, 2026 at 06:11 AM ET
 
 ## Disk Space
 
 |   Partition | Size (Used / Total)            |
 | ----------: | :----------------------------- |
-|         001 | 791.45 TB / 967.57 TB (81.80%) |
+|         001 | 792.23 TB / 967.57 TB (81.88%) |
 |         002 | 418.34 TB / 681.70 TB (61.37%) |
 
 
@@ -17,8 +17,8 @@ Last update: September 24, 2026 at 12:38 PM ET
 
 | Location      | Size (Local / Remote)           | Number of Objects (Local / Remote)[^1]   |
 | :------------ | :------------------------------ | :--------------------------------------- |
-| blobs/        | 1.21 PB / 1.23 PB (98.14%)      | 577306 / 642067 (89.91%)                 |
-| dandisets/    | 10.50 GB / 4.02 GB (261.15%)    | 11108 / 9310 (119.31%)                   |
+| blobs/        | 1.21 PB / 1.23 PB (97.95%)      | 577306 / 643591 (89.70%)                 |
+| dandisets/    | 10.50 GB / 4.02 GB (261.14%)    | 11143 / 9320 (119.56%)                   |
 | README.md     | 2.14 KB / 2.14 KB (100.00%)     | 1 / 1 (100.00%)                          |
 | index.html    | 3.09 KB / 3.09 KB (100.00%)     | 1 / 1 (100.00%)                          |
 | ros3test.hdf5 | 4.01 KB / 4.01 KB (100.00%)     | 1 / 1 (100.00%)                          |
