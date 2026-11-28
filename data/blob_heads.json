@@ -1,21 +1,21 @@
 {
-  "updated": "2026-11-27T06:05:25-05:00",
+  "updated": "2026-11-28T06:03:19-05:00",
   "partitions": {
     "001": {
       "size_bytes": 967570232442880,
-      "used_bytes": 758758334529536
+      "used_bytes": 770234243874816
     },
     "002": {
       "size_bytes": 681697209221120,
-      "used_bytes": 496427581046784
+      "used_bytes": 496603453456384
     }
   },
   "heads": [
     {
       "head": "0",
       "partition": "001",
-      "remote_bytes": 91207623143126,
-      "remote_objects": 60408,
+      "remote_bytes": 91286254983033,
+      "remote_objects": 60422,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -24,8 +24,8 @@
     {
       "head": "1",
       "partition": "001",
-      "remote_bytes": 85706122619980,
-      "remote_objects": 60270,
+      "remote_bytes": 85755355403130,
+      "remote_objects": 60278,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -34,8 +34,8 @@
     {
       "head": "2",
       "partition": "001",
-      "remote_bytes": 85616807748759,
-      "remote_objects": 60189,
+      "remote_bytes": 85729030141489,
+      "remote_objects": 60211,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -44,8 +44,8 @@
     {
       "head": "3",
       "partition": "001",
-      "remote_bytes": 84051194467804,
-      "remote_objects": 60521,
+      "remote_bytes": 84123813119326,
+      "remote_objects": 60532,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -54,8 +54,8 @@
     {
       "head": "4",
       "partition": "001",
-      "remote_bytes": 85721049858124,
-      "remote_objects": 60059,
+      "remote_bytes": 85804810787232,
+      "remote_objects": 60076,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -64,8 +64,8 @@
     {
       "head": "5",
       "partition": "001",
-      "remote_bytes": 88987219649585,
-      "remote_objects": 59785,
+      "remote_bytes": 89040512754045,
+      "remote_objects": 59797,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -74,8 +74,8 @@
     {
       "head": "6",
       "partition": "001",
-      "remote_bytes": 87292492971853,
-      "remote_objects": 59990,
+      "remote_bytes": 87342452806158,
+      "remote_objects": 60001,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -84,8 +84,8 @@
     {
       "head": "7",
       "partition": "001",
-      "remote_bytes": 82183000210866,
-      "remote_objects": 59954,
+      "remote_bytes": 82250931775714,
+      "remote_objects": 59966,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -94,8 +94,8 @@
     {
       "head": "8",
       "partition": "001",
-      "remote_bytes": 83597874877315,
-      "remote_objects": 60221,
+      "remote_bytes": 83678377766501,
+      "remote_objects": 60232,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -104,8 +104,8 @@
     {
       "head": "9",
       "partition": "001",
-      "remote_bytes": 88973864614721,
-      "remote_objects": 59991,
+      "remote_bytes": 89096866796565,
+      "remote_objects": 60012,
       "subdirectories": {
         "001": 256,
         "002": 0
@@ -114,8 +114,8 @@
     {
       "head": "a",
       "partition": "002",
-      "remote_bytes": 85443238382758,
-      "remote_objects": 59729,
+      "remote_bytes": 85512291830237,
+      "remote_objects": 59743,
       "subdirectories": {
         "001": 0,
         "002": 256
@@ -124,8 +124,8 @@
     {
       "head": "b",
       "partition": "002",
-      "remote_bytes": 86432463095764,
-      "remote_objects": 60279,
+      "remote_bytes": 86538107702806,
+      "remote_objects": 60294,
       "subdirectories": {
         "001": 0,
         "002": 256
@@ -134,8 +134,8 @@
     {
       "head": "c",
       "partition": "002",
-      "remote_bytes": 85413296727050,
-      "remote_objects": 60290,
+      "remote_bytes": 85515440101694,
+      "remote_objects": 60308,
       "subdirectories": {
         "001": 0,
         "002": 256
@@ -144,8 +144,8 @@
     {
       "head": "d",
       "partition": "002",
-      "remote_bytes": 86100688039257,
-      "remote_objects": 59752,
+      "remote_bytes": 86134856182174,
+      "remote_objects": 59767,
       "subdirectories": {
         "001": 0,
         "002": 256
@@ -154,8 +154,8 @@
     {
       "head": "e",
       "partition": "002",
-      "remote_bytes": 90278852305844,
-      "remote_objects": 60503,
+      "remote_bytes": 90363483332652,
+      "remote_objects": 60514,
       "subdirectories": {
         "001": 0,
         "002": 256
@@ -164,8 +164,8 @@
     {
       "head": "f",
       "partition": "002",
-      "remote_bytes": 88985730388192,
-      "remote_objects": 60221,
+      "remote_bytes": 89042076054351,
+      "remote_objects": 60232,
       "subdirectories": {
         "001": 0,
         "002": 256
